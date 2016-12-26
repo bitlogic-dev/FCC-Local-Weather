@@ -1,0 +1,10 @@
+body {
+  background-color: #333333;
+  font-family: PT sans;
+  color: #147BC4;
+}
+
+.centered {
+  margin: 0 auto;
+  text-align: center;
+}
