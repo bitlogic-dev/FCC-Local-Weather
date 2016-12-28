@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //create and set variables
   var units = 'imperial';
-  var temp, tempUnit, htmlTemp, htmlTempUnit;
+  var temp, tempUnit, htmlTemp, htmlTempUnit, lat, lon;
 
   //describe function for retrieving weather data from API using coordinates
   function getWeather() {
@@ -47,9 +47,9 @@ $(document).ready(function() {
 
   //get lat & lon from geolocation object and call getWeather
   navigator.geolocation.getCurrentPosition(function(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
     getWeather();
   });
-  
+
 });
