@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <link href='css/style.css' rel='stylesheet' />
     <script src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous'></script>
     <script src='js/app.js'></script>
-    <title>Title of the document</title>
+    <title>Local Weather</title>
   </head>
 
   <body>
-  <div id="pageTitle" class="centered">
-    <h2>Free Code Camp</h2>
-    <h3>Local Weather App</h3>
-  </div>
-  <div id="weatherWrap" class="centered">
-    <div id="location"></div>
-    <div id="main">
-      <div id="temp"></div></div>
-    <div id="weather"></div>
-    <div id="wind"></div>
-    <div id="icon"></div>
-    <button id="units">Switch Units</button>
-  </div>
-</body>
+    <div class='container'>
+      <div class='centered'>
+        <h2>Local Weather App</h2>
+      </div>
+      <div id='weatherWrap' class='centered display'>
+        <div id='location'></div>
+        <div id='main'>
+          <div id='temp'></div></div>
+        <div id='weather'></div>
+        <div id='wind'></div>
+        <div id='icon'></div>
+        <div id='units' class='btn'>Switch Units</div>
+      </div>
+    </div>
+  </body>
 </html>
