@@ -4,7 +4,7 @@ $(document).ready(function() {
   var temp, tempUnit, htmlTemp, htmlTempUnit, lat, lon;
   //describe function for geolocation using IP address
   function getLocation() {
-    return $.getJSON('http://ipinfo.io/json', function(data) {
+    return $.getJSON('https://ipinfo.io/json', function(data) {
       var locationData = data.loc.split(',');
       lat = parseFloat(locationData[0]);
       lon = parseFloat(locationData[1]);
@@ -20,7 +20,7 @@ $(document).ready(function() {
       tempUnit = '&#8457';
       htmlTempUnit = '<sup>&deg</sup>' + tempUnit;
       htmlTemp = '<p>' + temp + tempUnit + '</p>';
-      var htmlIcon = '<img src="http://openweathermap.org/img/w/' + weatherIcon + '.png">';
+      var htmlIcon = '<img src="https://openweathermap.org/img/w/' + weatherIcon + '.png">';
       var htmlDescription = '<p>' + description + '</p>';
       var htmlCity = '<p>' + city + '</p>';
 
