@@ -4,7 +4,7 @@ $(document).ready(function() {
   var temp, tempUnit, htmlTemp, htmlTempUnit, lat, lon;
   //describe function for geolocation using IP address
   function getLocation() {
-    return $.getJSON('https://ipinfo.io/json', function(data) {
+    return $.getJSON('http://ipinfo.io/json', function(data) {
       var locationData = data.loc.split(',');
       lat = parseFloat(locationData[0]);
       lon = parseFloat(locationData[1]);

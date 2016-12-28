@@ -35,6 +35,7 @@ body {
   background-color: #eb6841;
   margin: 0 auto;
   min-height: 400px;
+  max-width: 400px;
   border: 1px solid #222;
   box-shadow: 3px 3px 1px #222;
   padding: 30px;
