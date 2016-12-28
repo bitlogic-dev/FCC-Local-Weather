@@ -1,15 +1,8 @@
 $(document).ready(function() {
   //create and set variables
   var units = 'imperial';
-  var temp, tempUnit, htmlTemp, htmlTempUnit, lat, lon;
-  //describe function for geolocation using IP address
-  function getLocation() {
-    return $.getJSON('https://ipinfo.io/json', function(data) {
-      var locationData = data.loc.split(',');
-      lat = parseFloat(locationData[0]);
-      lon = parseFloat(locationData[1]);
-    });
-  }
+  var temp, tempUnit, htmlTemp, htmlTempUnit;
+
   //describe function for retrieving weather data from API using coordinates
   function getWeather() {
     $.getJSON('//api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=' + units + '&APPID=daf287f74f0dd8c394d7fd3e4e554041', function(json) {
@@ -20,7 +13,7 @@ $(document).ready(function() {
       tempUnit = '&#8457';
       htmlTempUnit = '<sup>&deg</sup>' + tempUnit;
       htmlTemp = '<p>' + temp + tempUnit + '</p>';
-      var htmlIcon = '<img src="https://openweathermap.org/img/w/' + weatherIcon + '.png">';
+      var htmlIcon = '<img src="http://openweathermap.org/img/w/' + weatherIcon + '.png">';
       var htmlDescription = '<p>' + description + '</p>';
       var htmlCity = '<p>' + city + '</p>';
 
@@ -30,7 +23,8 @@ $(document).ready(function() {
       $('#icon').html(htmlIcon);
     });
   }
-  //describe function for button that converts temperature unit
+
+  //jQuery event listener for unit conversion button
   $('#units').on('click', function() {
     if (units == 'imperial') {
       units = 'metric';
@@ -50,6 +44,12 @@ $(document).ready(function() {
       $('#temp').html(htmlTemp);
     }
   });
-  //use promise chain to ensure the API calls are run in order
-  getLocation().then(getWeather);
+
+  //get lat & lon from geolocation object and call getWeather
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+    getWeather();
+  });
+  
 });
