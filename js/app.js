@@ -3,6 +3,15 @@ $(document).ready(function() {
   var units = 'imperial';
   var temp, tempUnit, htmlTemp, htmlTempUnit, lat, lon;
 
+  //function to get location coordinates from geolocation object
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      console.log('lat =' + lat + ', lon =' + lon);
+    });
+  }
+
   //describe function for retrieving weather data from API using coordinates
   function getWeather() {
     $.getJSON('//api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&units=' + units + '&APPID=daf287f74f0dd8c394d7fd3e4e554041', function(json) {
@@ -46,10 +55,6 @@ $(document).ready(function() {
   });
 
   //get lat & lon from geolocation object and call getWeather
-  navigator.geolocation.getCurrentPosition(function(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    getWeather();
-  });
-
+  getLocation();
+  getWeather();
 });
